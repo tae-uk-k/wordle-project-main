@@ -1,7 +1,7 @@
 import pickle
 
 class saveData:
-
+    score=0
     def save_game_state(self,player_name, score):
         data = {
            'player_name': player_name,
@@ -27,8 +27,9 @@ class saveData:
         print(f"안녕하세요, {self.player_name}! 현재 점수는 {self.score}점입니다.")
         
     def set_score(self, new_score):
-        player_name, old_score = self.load_game_state()
-        self.save_game_state(player_name, new_score)
+        self.player_name, self.score = self.load_game_state()
+        self.score+=new_score
+        self.save_game_state(self.player_name, self.score)
 
     def get_score(self):
         _, score = self.load_game_state()
