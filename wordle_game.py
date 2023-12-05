@@ -10,8 +10,11 @@ w.setDifficulty(ans)
 w.preSetting()
 w.gamePlay()
 turn = w.getTurn()
-
 print(turn, "번째에 맞췄습니다. ")
+
+new_score=(int(ans)+1)*3
+s.set_score(new_score)
+
 s.save_game_state(s.player_name, s.score)
 
 
